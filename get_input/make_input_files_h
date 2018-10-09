@@ -1,0 +1,66 @@
+#!/bin/bash
+
+#----------------------------------------------------------------------------------------------------
+
+files_per_block="50"
+
+function FlushBuffer()
+{
+	# make work directory
+	dir="../$tag/block$block_idx"
+	mkdir -p "$dir"
+
+	# make input file
+	cat "input_files_template.h" | sed "\
+			s|\$FILES|$buffer|;\
+		" > "$dir/input_files.h"
+
+	# make parameters.h
+	(
+		echo "#include \"../parameters.h\""
+	) > "$dir/parameters.h"
+
+	buffer=""
+	let buffer_size=0
+	let block_idx+=1
+}
+
+function MakeOne()
+{
+	local tag="$1"
+	local search="$2"
+
+	# get input files
+	buffer=""
+	buffer_size="0"
+	block_idx="0"
+	for f in `eos ls "$eos_dir"|grep "$search"|grep ".root"`
+	do
+		if [ -n "$buffer" ]
+		then
+			buffer="$buffer,\n"
+		fi
+
+		buffer="${buffer}\t\t\"root://eostotem.cern.ch/${eos_dir}/${f}\""
+		let buffer_size+=1
+
+		if [ "$buffer_size" -ge "$files_per_block" ]
+		then
+			FlushBuffer
+		fi
+	done
+	
+	if [ "$buffer_size" -gt "0" ]
+	then
+		FlushBuffer
+	fi
+}
+
+#----------------------------------------------------------------------------------------------------
+
+eos_dir="/eos/totem/data/ctpps/reconstruction/2018/alignment_run_September/version2"
+
+MakeOne "DS-xangle-130-beta-27" "323311\|323312"
+
+MakeOne "DS-xangle-130-beta-25" "323316"
+
