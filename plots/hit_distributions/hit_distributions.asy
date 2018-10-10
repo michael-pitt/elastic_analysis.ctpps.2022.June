@@ -6,9 +6,7 @@ string topDir = "../../";
 TH2_palette = Gradient(blue, heavygreen, yellow, red);
 
 string datasets[] = {
-	"DS-xangle-160-beta-30",
-	"DS-xangle-131-beta-30",
-	"DS-xangle-130-beta-30",
+	"DS-xangle-130-beta-27",
 	"DS-xangle-130-beta-25",
 };
 

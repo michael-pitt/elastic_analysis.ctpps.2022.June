@@ -4,9 +4,7 @@ import pad_layout;
 string topDir = "../../";
 
 string datasets[], dataset_periods[];
-datasets.push("DS-xangle-160-beta-30"); dataset_periods.push("period 0");
-datasets.push("DS-xangle-131-beta-30"); dataset_periods.push("period 0");
-datasets.push("DS-xangle-130-beta-30"); dataset_periods.push("period 0");
+datasets.push("DS-xangle-130-beta-27"); dataset_periods.push("period 0");
 datasets.push("DS-xangle-130-beta-25"); dataset_periods.push("period 0");
 
 string units[], unit_labels[];

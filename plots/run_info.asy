@@ -18,10 +18,10 @@ void AddRun(string ds, int r, real f, real t, pen p = yellow)
 	colors.push(p);
 }
 
-AddRun("160/0.30", 0, 72846, 73835);
-AddRun("131/0.30", 0, 74740, 84017);
-AddRun("130/0.30", 0, 84384, 97444);
-AddRun("130/0.25", 0, 98038, 105295);
+AddRun("130/0.27", 323311, 57035, 61282);
+AddRun("130/0.27", 323312, 61551, 64268);
+
+AddRun("130/0.25", 323316, 65481, 72890);
 
 // in hours
 real time_min = 0;
