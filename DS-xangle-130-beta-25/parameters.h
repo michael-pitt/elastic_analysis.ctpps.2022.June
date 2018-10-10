@@ -8,10 +8,11 @@ void Init_base()
 	// list of (sub-)directories with distilled ntuples
 	distilledNtuples.push_back("block0");
 	distilledNtuples.push_back("block1");
+	distilledNtuples.push_back("block2");
 
 	// alignment periods
-	anal.alignment_t0 = 98038;				// beginning of the first time-slice
-	anal.alignment_ts = 105295 - 98038;		// time-slice in s
+	anal.alignment_t0 = 65481;				// beginning of the first time-slice
+	anal.alignment_ts = 72890 - 65481;		// time-slice in s
 }
 
 //----------------------------------------------------------------------------------------------------
