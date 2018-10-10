@@ -860,10 +860,10 @@ int main(int argc, char **argv)
 		}
 
 		// apply XY cut
-		if (h_al.L_2_F.x < -2.0 || h_al.L_2_F.x > +2.0 || h_al.L_2_F.y < -4.5 || h_al.L_2_F.y > +4.5) continue;
+		if (h_al.L_2_F.x < -2.0 || h_al.L_2_F.x > +2.0 || h_al.L_2_F.y < -3.5 || h_al.L_2_F.y > +4.5) continue;
 		if (h_al.L_1_F.x < -2.0 || h_al.L_1_F.x > +2.0 || h_al.L_1_F.y < -4.5 || h_al.L_1_F.y > +4.5) continue;
-		if (h_al.R_1_F.x < -2.0 || h_al.R_1_F.x > +2.0 || h_al.R_1_F.y < -4.5 || h_al.R_1_F.y > +4.5) continue;
-		if (h_al.R_2_F.x < -2.0 || h_al.R_2_F.x > +2.0 || h_al.R_2_F.y < -4.5 || h_al.R_2_F.y > +4.5) continue;
+		if (h_al.R_1_F.x < -2.0 || h_al.R_1_F.x > +2.0 || h_al.R_1_F.y < -5.0 || h_al.R_1_F.y > +4.0) continue;
+		if (h_al.R_2_F.x < -2.0 || h_al.R_2_F.x > +2.0 || h_al.R_2_F.y < -3.5 || h_al.R_2_F.y > +4.5) continue;
 
 		// run reconstruction
 		Kinematics k = DoReconstruction(h_al, env);
@@ -894,13 +894,6 @@ int main(int argc, char **argv)
 
 		double ta_y = (ta_y_L + ta_y_R) / 2.;
 		*/
-
-		// hit-map cuts
-		if (h_al.L_2_F.x < -6 || h_al.L_2_F.x > +6|| fabs(h_al.L_2_F.y) > 50)
-			continue;
-
-		if (h_al.R_2_F.x < -6 || h_al.R_2_F.x > +6|| fabs(h_al.R_2_F.y) > 50)
-			continue;
 
 		// cut evaluation
 		CutData cd;
