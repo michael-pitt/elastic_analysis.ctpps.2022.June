@@ -10,6 +10,8 @@ function FlushBuffer()
 	dir="../$tag/block$block_idx"
 	mkdir -p "$dir"
 
+	echo "* $dir"
+
 	# make input file
 	cat "input_files_template.h" | sed "\
 			s|\$FILES|$buffer|;\
