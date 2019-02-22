@@ -115,12 +115,12 @@ int main(int argc, char **argv)
 		return rcIncompatibleDiagonal;
 
 	// default parameters
-	unsigned int detailsLevel = 10; 	// 0: no details, 1: some details, >= 2 all details
+	unsigned int detailsLevel = 1; 	// 0: no details, 1: some details, >= 2 all details
 	bool overrideCutSelection = false;	// whether the default cut selection should be overriden by the command-line selection
 	string cutSelectionString;
 	string outputDir = ".";
 	string inputDir = ".";
-	double input_n_si = 3.0;
+	double input_n_si = 4.0;
 	int time_group_divisor = 0;
 	int time_group_remainder = 0;
 	int event_group_divisor = 0;
@@ -860,10 +860,10 @@ int main(int argc, char **argv)
 		}
 
 		// apply XY cut
-		if (h_al.L_2_F.x < -1.8 || h_al.L_2_F.x > +1.8 || h_al.L_2_F.y < -3.7 || h_al.L_2_F.y > +3.7) continue;
-		if (h_al.L_1_F.x < -1.8 || h_al.L_1_F.x > +1.8 || h_al.L_1_F.y < -4.0 || h_al.L_1_F.y > +4.0) continue;
-		if (h_al.R_1_F.x < -1.8 || h_al.R_1_F.x > +1.8 || h_al.R_1_F.y < -4.3 || h_al.R_1_F.y > +4.3) continue;
-		if (h_al.R_2_F.x < -1.8 || h_al.R_2_F.x > +1.8 || h_al.R_2_F.y < -4.0 || h_al.R_2_F.y > +4.0) continue;
+		if (h_al.L_2_F.x < -2.0 || h_al.L_2_F.x > +2.0 || h_al.L_2_F.y < -3.7 || h_al.L_2_F.y > +3.7) continue;
+		if (h_al.L_1_F.x < -2.0 || h_al.L_1_F.x > +2.0 || h_al.L_1_F.y < -4.0 || h_al.L_1_F.y > +4.0) continue;
+		if (h_al.R_1_F.x < -2.0 || h_al.R_1_F.x > +2.0 || h_al.R_1_F.y < -4.3 || h_al.R_1_F.y > +4.3) continue;
+		if (h_al.R_2_F.x < -2.0 || h_al.R_2_F.x > +2.0 || h_al.R_2_F.y < -4.0 || h_al.R_2_F.y > +4.0) continue;
 
 		// run reconstruction
 		Kinematics k = DoReconstruction(h_al, env);
