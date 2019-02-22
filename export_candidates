@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export_dir="/afs/cern.ch/user/j/jkaspar/public/for_frici/ctpps-2018-september"
+
+for dir in DS-xangle-*
+do
+	mkdir -p "$export_dir/$dir"
+	cp $dir/candidates*.txt "$export_dir/$dir"
+done
