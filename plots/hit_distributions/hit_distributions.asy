@@ -22,12 +22,11 @@ drawGridDef = true;
 TH2_x_min = -5;
 TH2_x_max = +5;
 TH2_y_min = -5;
-TH2_y_max = +10;
+TH2_y_max = +5;
 
-string dir = "hit distributions/vertical, aligned, after selection";
-string suffix = "_al_sel";
-//string dir = "hit distributions/vertical, aligned, before selection";
-//string suffix = "_al_nosel";
+string s_dirs[], s_suffixes[];
+s_dirs.push("hit distributions/vertical, aligned, before selection"); s_suffixes.push("_al_nosel");
+s_dirs.push("hit distributions/vertical, aligned, after selection"); s_suffixes.push("_al_sel");
 
 //----------------------------------------------------------------------------------------------------
 
@@ -45,44 +44,49 @@ path hor_det_shape = shift(0, -cutEdge/sqrt(2)*10) * det_shape;
 
 //----------------------------------------------------------------------------------------------------
 
-for (int dsi : datasets.keys)
+for (int seli : s_dirs.keys)
 {
-	NewRow();
-
-	NewPad(false);
-	label("{\SetFontSizesXX " + datasets[dsi] + "}");
-
-	string file_45b = topDir + datasets[dsi] + "/distributions_45b_56t.root";
-	string file_45t = topDir + datasets[dsi] + "/distributions_45t_56b.root";
-
-	for (int ui : units.keys)
+	for (int dsi : datasets.keys)
 	{
-		NewPad("$x\ung{mm}$", "$y\ung{mm}$", 6cm, 12cm, axesAbove=true);
-		scale(Linear, Linear, Log);
+		NewRow();
 
-		//TH2_z_max = 1e3;
+		NewPad(false);
+		label("{\SetFontSizesXX " + datasets[dsi] + "}");
 
-		RootGetObject(file_45b, dir + "/h_y_"+units[ui]+"_vs_x_"+units[ui] + suffix);
-		draw(robj, "p,bar");
+		string file_45b = topDir + datasets[dsi] + "/distributions_45b_56t.root";
+		string file_45t = topDir + datasets[dsi] + "/distributions_45t_56b.root";
 
-		RootGetObject(file_45t, dir + "/h_y_"+units[ui]+"_vs_x_"+units[ui] + suffix);
-		draw(robj, "p");
+		for (int ui : units.keys)
+		{
+			NewPad("$x\ung{mm}$", "$y\ung{mm}$", 6cm, 12cm);
+			scale(Linear, Linear, Log);
 
-		/*
-		draw(shift(0, sh_top[ui])*det_shape);
-		draw(shift(0, sh_bot[ui])*scale(1, -1)*det_shape);
-		*/
+			//TH2_z_max = 1e3;
 
-		//draw(shift(6.2, 0)*rotate(-90)*det_shape);
+			RootGetObject(file_45b, s_dirs[seli] + "/h_y_"+units[ui]+"_vs_x_"+units[ui] + s_suffixes[seli]);
+			draw(robj, "p,bar");
 
-		limits((-5, -5), (+5, +5), Crop);
-		//limits((-15, -30), (+15, +30), Crop);
+			RootGetObject(file_45t, s_dirs[seli] + "/h_y_"+units[ui]+"_vs_x_"+units[ui] + s_suffixes[seli]);
+			draw(robj, "p");
 
-		yaxis(XEquals(-2, false), magenta+2pt);
-		yaxis(XEquals(+2, false), magenta+2pt);
+			/*
+			draw(shift(0, sh_top[ui])*det_shape);
+			draw(shift(0, sh_bot[ui])*scale(1, -1)*det_shape);
+			*/
 
-		AttachLegend(replace(unit_labels[ui], "_", "\_"));
+			//draw(shift(6.2, 0)*rotate(-90)*det_shape);
+
+			real x_min = -2., x_max = +2.;
+			real y_min = -4.5, y_max = +4.5;
+
+			draw((x_min, y_min)--(x_max, y_min)--(x_max, y_max)--(x_min, y_max)--cycle, black+2pt);
+
+			limits((-5, -5), (+5, +5), Crop);
+			//limits((-15, -30), (+15, +30), Crop);
+
+			AttachLegend(replace(unit_labels[ui], "_", "\_"));
+		}
 	}
-}
 
-GShipout(hSkip=1mm, vSkip=1mm);
+	GShipout("hit_distributions" + s_suffixes[seli], hSkip=1mm, vSkip=1mm);
+}
