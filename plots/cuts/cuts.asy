@@ -75,7 +75,7 @@ for (int ci : cuts.keys)
 			
 			NewPad(label_cut[idx]);
 			string objH = format("elastic cuts/cut %i", cut) + format("/h_cq%i", cut);
-			draw(scale(scale_y[idx], 1.), RootGetObject(f, objH+""), "vl,eb,lM,lR", red);
+			draw(scale(scale_y[idx], 1.), RootGetObject(f, objH+""), "vl,eb,lE,lM,lR", red);
 			//draw(scale(scale_x[idx], scale_y[idx]), RootGetObject(f, objH+"|gaus"));
 			xlimits(-0.5, +0.5, Crop);
 			AttachLegend();
