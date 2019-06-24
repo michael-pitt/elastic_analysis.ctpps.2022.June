@@ -3,5 +3,6 @@
 *.root
 *.pdf
 .*
+*.txt
 
 !.gitignore
