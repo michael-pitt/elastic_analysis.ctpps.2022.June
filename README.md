@@ -45,6 +45,7 @@ mkdir plots
 cat "../get_input/parameters_template.h" | sed "s|\$BLOCKS||;" > "parameters.h"
 g++ -O3 -Wall -Wextra -Wno-attributes --std=c++11 -I"$CMSSW_BASE/src/elastic_analysis.ctpps.2022.June" `root-config --libs` -lMinuit -lMinuit2 `root-config --cflags` -I"$CMSSW_BASE/src" -I"$CMSSW_RELEASE_BASE/src" -L"$CMSSW_BASE/lib/$SCRAM_ARCH" -L"$CMSSW_RELEASE_BASE/lib/$SCRAM_ARCH" -lDataFormatsFWLite -lDataFormatsCommon -lDataFormatsCTPPSDetId distributions.cc -o distributions 
 ./distributions 45t_56b -input-dir $PWD -output-dir $PWD/plots
+./distributions 45b_56t -input-dir $PWD -output-dir $PWD/plots
 ```
 
 
