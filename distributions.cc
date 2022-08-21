@@ -830,7 +830,7 @@ int main(int argc, char **argv)
 			continue;
 
 		// zero bias event?
-		bool zero_bias_event = false;
+		bool zero_bias_event = true;
 		//bool zero_bias_event = IsZeroBias(ev.trigger_bits, ev.run_num, ev.event_num);
 
 		N_anal++;

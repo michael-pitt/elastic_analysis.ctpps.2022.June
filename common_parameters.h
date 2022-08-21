@@ -1,7 +1,7 @@
 void Environment::InitNominal()
 {
 	// beam momentum (GeV)
-	p = p_L = p_R = 6500.;
+	p = p_L = p_R = 6800.;
 
 	// momentum uncertainty
 	si_de_p = 1E-3 * p;

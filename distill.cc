@@ -122,27 +122,32 @@ int main(int argc, char **argv)
 		// process track data
 		for (const auto &tr : *tracks)
 		{
-			CTPPSDetId rpId(tr.getRPId());
+			//CTPPSDetId rpId(tr.getRPId());
+			CTPPSDetId rpId(tr.rpId());
 			unsigned int rpDecId = 100*rpId.arm() + 10*rpId.station() + 1*rpId.rp();
 
 			if (rpDecId == rpId_L_2_F)
 			{
-				ev.h.L_2_F.v = true; ev.h.L_2_F.x = tr.getX(); ev.h.L_2_F.y = tr.getY();
+				//ev.h.L_2_F.v = true; ev.h.L_2_F.x = tr.getX(); ev.h.L_2_F.y = tr.getY();
+				ev.h.L_2_F.v = true; ev.h.L_2_F.x = tr.x(); ev.h.L_2_F.y = tr.y();
 			}
 
 			if (rpDecId == rpId_L_1_F)
 			{
-				ev.h.L_1_F.v = true; ev.h.L_1_F.x = tr.getX(); ev.h.L_1_F.y = tr.getY();
+				//ev.h.L_1_F.v = true; ev.h.L_1_F.x = tr.getX(); ev.h.L_1_F.y = tr.getY();
+				ev.h.L_1_F.v = true; ev.h.L_1_F.x = tr.x(); ev.h.L_1_F.y = tr.y();
 			}
 
 			if (rpDecId == rpId_R_1_F)
 			{
-				ev.h.R_1_F.v = true; ev.h.R_1_F.x = tr.getX(); ev.h.R_1_F.y = tr.getY();
+				//ev.h.R_1_F.v = true; ev.h.R_1_F.x = tr.getX(); ev.h.R_1_F.y = tr.getY();
+				ev.h.R_1_F.v = true; ev.h.R_1_F.x = tr.x(); ev.h.R_1_F.y = tr.y();
 			}
 
 			if (rpDecId == rpId_R_2_F)
 			{
-				ev.h.R_2_F.v = true; ev.h.R_2_F.x = tr.getX(); ev.h.R_2_F.y = tr.getY();
+				//ev.h.R_2_F.v = true; ev.h.R_2_F.x = tr.getX(); ev.h.R_2_F.y = tr.getY();
+				ev.h.R_2_F.v = true; ev.h.R_2_F.x = tr.x(); ev.h.R_2_F.y = tr.y();
 			}
 		}
 
