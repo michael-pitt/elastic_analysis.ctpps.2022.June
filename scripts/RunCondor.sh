@@ -9,7 +9,7 @@ fi
 
 pkg=${CMSSW_BASE}/src/elastic_analysis.ctpps.2022.June
 
-extime="workday" #testmatch tomorrow workday
+extime="microcentury" #testmatch tomorrow workday longlunch microcentury espresso
 condor="condor_generator.sub"
 echo "executable  = ${pkg}/scripts/run.sh" > $condor
 echo "output      = ${condor}.out" >> $condor
@@ -24,7 +24,7 @@ for ds in `ls -d $pkg/output/*/`; do
   for block in $ds/block*; do
     for mode in 45t_56b 45t_56t 45b_56b 45b_56t; do
     if test ! -f "${block}/distill_${mode}.root"; then
-      echo submit ${block}/distill_${mode}.root
+      echo produce ${block}/distill_${mode}.root
       echo "arguments   = ${block} ${mode} ${CMSSW_BASE}" >> $condor
       echo "queue 1" >> $condor
     fi

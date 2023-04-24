@@ -9,6 +9,8 @@ fi
 
 pkg=${CMSSW_BASE}/src/elastic_analysis.ctpps.2022.June
 
-for mode in 45t_56b 45t_56t 45b_56b 45b_56t; do
-  hadd -f $pkg/output/distill_${mode}.root $pkg/output/*/block*/distill_${mode}.root
+for folder in $pkg/output/*/; do
+  for mode in 45t_56b 45t_56t 45b_56b 45b_56t; do
+    hadd -f $folder/distill_${mode}.root $folder/block*/distill_${mode}.root
+  done
 done

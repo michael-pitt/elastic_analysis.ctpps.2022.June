@@ -87,6 +87,6 @@ bool Analysis::EvaluateCuts(const HitData & h, const Kinematics &k, CutData &cd)
 	{
 		select &= cd.ct[cuts[ci]];
 	}
-
+  return true;
 	return select;
 }

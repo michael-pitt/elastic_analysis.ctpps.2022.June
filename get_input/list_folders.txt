@@ -1,22 +1,3 @@
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias0
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias1
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias10
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias11
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias12
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias13
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias14
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias15
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias16
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias17
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias18
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias19
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias2
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias3
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias4
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias5
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias6
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias7
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias8
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v2/ZeroBias9
-/eos/cms/store/user/mpitt/PROPOG/Alignment/v1/ZeroBias
+/eos/home-m/mpitt/PROPOG/Alignment/Run366186/0
+/eos/home-m/mpitt/PROPOG/Alignment/Run366186/1
 
