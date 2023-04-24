@@ -78,18 +78,11 @@ g++ -O3 -Wall -Wextra -Wno-attributes --std=c++11 -I"$CMSSW_BASE/src/elastic_ana
 ```
 
 
-### Submitting jobs
+### 3. alignment
 
-To process all datasets in parallel we can use Condor:
-```bash
-cd $CMSSW_BASE/src/elastic_analysis.ctpps.2022.June
-bash scripts/RunCondor.sh
-```
+...
 
-Once the datasets are processed, merge them using the following command:
-```bash
-cd $CMSSW_BASE/src/elastic_analysis.ctpps.2022.June
-bash scripts/merge.sh
-```
+### 4. alignment fit
 
+...
 
