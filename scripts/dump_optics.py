@@ -1,6 +1,6 @@
 import ROOT
 
-optics_file = '/eos/cms/store/group/phys_pps/reconstruction/optical_functions/2023/version_1/135.000urad.root'
+optics_file = '/eos/cms/store/group/phys_pps/reconstruction/optical_functions/2024/version_1/160.000urad.root'
 
 infile = ROOT.TFile.Open(optics_file)
 #notations: R1,2: XRPV_D6R5_B1, XRPV_B6R5_B1
