@@ -1,11 +1,11 @@
 # PPS Alignment
 
-This package is responsible for the PPS alignment using calibration run (low-luminosity reference run).
+This package is responsible for the PPS alignment using calibration run (low-luminosity reference run) with vertical detectors.
 
 # Instalation
 ```bash
-cmsrel CMSSW_13_0_3
-cd CMSSW_13_0_3/src
+cmsrel CMSSW_14_0_3
+cd CMSSW_14_0_3/src
 git clone git@github.com:michael-pitt/elastic_analysis.ctpps.2022.June.git
 scram b -j
 ```
@@ -73,6 +73,8 @@ python3 $CMSSW_BASE/src/elastic_analysis.ctpps.2022.June/scripts/dump_optics.py
  python3 $CMSSW_BASE/src/elastic_analysis.ctpps.2022.June/scripts/print_XYcuts.py
 ```
 
+3. after running once, check `selected - angles -> graphs` to determine the ranges of the anges and update the code.
+
 Create distributions:
 ```bash
 cd $CMSSW_BASE/src/elastic_analysis.ctpps.2022.June
@@ -87,7 +89,10 @@ g++ -O3 -Wall -Wextra -Wno-attributes --std=c++11 -I"$CMSSW_BASE/src/elastic_ana
 
 ### 3. alignment
 
-...
+```bash
+g++ -O3 -Wall -Wextra -Wno-attributes --std=c++11 -I"$CMSSW_BASE/src/elastic_analysis.ctpps.2022.June" `root-config --libs` -lMinuit -lMinuit2 `root-config --cflags` -I"$CMSSW_BASE/src" -I"$CMSSW_RELEASE_BASE/src" -L"$CMSSW_BASE/lib/$SCRAM_ARCH" -L"$CMSSW_RELEASE_BASE/lib/$SCRAM_ARCH" -lDataFormatsFWLite -lDataFormatsCommon -lDataFormatsCTPPSDetId alignment.cc -o alignment 
+./alignment combined
+```
 
 ### 4. alignment fit
 
